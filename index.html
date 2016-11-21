@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head>
+    <title>Weather web app</title>
+    <!-- Information start -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Panagiotis Triantafyllou" />
+    <!-- Information end -->
+
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    <link href="css/stylesheet.css" rel="stylesheet" />
+    <link href="css/slide.css" rel="stylesheet" />
+
+    <!-- Για να φορτώσει τα HTML5 elements σε παλαιότερες εκδόσεις του IE(<9) -->
+    <!--[if lt IE 9]>
+             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+</head>
+
+<!-- LOADER START -->
+<body class="bgc" onload="loader()">
+    <div id="loader">
+        <img src="img/umbrella.svg"/>
+        <span id="clr">umbrellapp</span>
+    </div>
+<!-- LOADER END -->
+
+<!-- MAIN PAGE -->
+    <section>
+        <div class="container animate-bottom col-sm-12" id="mydiv">
+            <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left">
+                <h3>Menu</h3>
+                <a href="#">team</a>
+                <a href="#">history</a>
+                <a href="#">contact</a>
+                <a href="#">suggest to a friend</a>
+            </nav>
+            <div class="row" id="row">
+                <a href="#" class="toggle-menu menu-left">
+                    <span class="glyphicon glyphicon-menu-hamburger"></span>
+                </a>
+            </div>
+
+            <div class="row">
+                <img id="megethos" src="img/umbrella.svg" />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            </div>
+
+            <div class="row">
+                <div>type a location:</div>
+                <br />
+                <div class="input-group input-group-lg col-sm-2 col-sm-offset-5">
+                    <input id="bc1" name="city" type="text" class="form-control" placeholder="type here...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" name="city" type="button">
+                            <span class="glyphicon glyphicon-search clr2"></span>
+                        </button>
+                    </span>
+                </div>
+                <br /><br />
+
+                <div>or give us your location</div>
+                <br />
+                <div class="btn-group btn-group-lg" role="group" value="access location">
+                    <button id="bc2" type="button" class="btn btn-success location" onclick="location()"><span class="glyphicon glyphicon-send"></span>     access location</button>
+                </div>
+            </div>
+            <div id="result"></div>
+
+
+            <div class="forecast hidden">
+                <div class="favs">
+                    <span class="text">Add to Favourites</span><i class="flaticon-heart"></i>
+                </div>
+                <div class="today weather day-forecast">
+                    <div class="day-label">TODAY</div>
+                    <div class="city-info"><span class="city-name">Athens</span>, <span class="country-code">GR</span> </div>
+                    <div class="weather-icon" meteocons="Y"></div>
+                    <div class="temp">
+                        <div class="highest"><span class="temp-text">14</span><span> &degC</span></div>
+                        <div class="lowest"><span class="temp-text">14</span><span> &degC</span></div>
+                    </div>
+                </div>
+                <div class="restdays weather">
+                    <div class="day-forecast">
+                        <div class="day-label">TUE</div>
+                        <div class="weather-icon" meteocons="R"></div>
+                        <div class="temp">
+                            <div class="highest"><span class="temp-text">14</span><span> &degC</span></div>
+                            <div class="lowest"><span class="temp-text">14</span><span> &degC</span></div>
+                        </div>
+                    </div>
+                    <div class="day-forecast">
+                        <div class="day-label">WED</div>
+                        <div class="weather-icon" meteocons="H"></div>
+                        <div class="temp">
+                            <div class="highest"><span class="temp-text">14</span><span> &degC</span></div>
+                            <div class="lowest"><span class="temp-text">14</span><span> &degC</span></div>
+                        </div>
+                    </div>
+                    <div class="day-forecast">
+                        <div class="day-label">THU</div>
+                        <div class="weather-icon" meteocons="B"></div>
+                        <div class="temp">
+                            <div class="highest"><span class="temp-text">14</span><span> &degC</span></div>
+                            <div class="lowest"><span class="temp-text">14</span><span> &degC</span></div>
+                        </div>
+                    </div>
+                    <div class="day-forecast">
+                        <div class="day-label">FRI</div>
+                        <div class="weather-icon" meteocons="Y"></div>
+                        <div class="temp">
+                            <div class="highest"><span class="temp-text">14</span><span> &degC</span></div>
+                            <div class="lowest"><span class="temp-text">14</span><span> &degC</span></div>
+                        </div>
+                    </div>
+                    <div class="day-forecast">
+                        <div class="day-label">SAT</div>
+                        <div class="weather-icon" meteocons="H"></div>
+                        <div class="temp">
+                            <div class="highest"><span class="temp-text">14</span><span> &degC</span></div>
+                            <div class="lowest"><span class="temp-text">14</span><span> &degC</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+<!-- MAIN PAGE END -->
+
+
+
+
+        <script src="js/jquery-3.0.0.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="js/slide.js" type="text/javascript"></script>
+
+    <!-- LOADER SCRIPT -->
+        <script>
+            var myvar;
+            function loader() {
+                myvar = setTimeout(showPage, 3000);
+            }
+            function showPage() {
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("mydiv").style.display = "block";
+            }
+        </script>
+    <!-- LOADER SCRIPT -->
+
+
+    <!-- LOCATION SCRIPT -->
+    <script>
+        function location() {
+            var output = document.getElementById("result");
+
+            if (!navigator.geolocation) {
+                output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+                return;
+            }
+
+            function success(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
+
+                var img = new Image();
+                img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
+
+                output.appendChild(img);
+            }
+
+            function error() {
+                output.innerHTML = "Unable to retrieve your location";
+            }
+
+            output.innerHTML = "<p>Locating…</p>";
+
+            navigator.geolocation.getCurrentPosition(success, error);
+        }
+    </script>
+    <!-- LOCATION SCRIPT -->
+
+    <!-- SLIDER -->
+    <script>
+    jQuery(document).ready(function ($) {
+        $('.toggle-menu').slide();
+    });
+    </script>
+    <!-- SLIDER -->
+
+</body>
+
+</html>
